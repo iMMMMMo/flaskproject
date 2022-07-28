@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+{% if money %}
+<div class="row row-cols-3">
+    <div class="col"></div>
+    <div class="col">
+        <div class="content-section">
+            <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Amount</th>
+                    </tr>
+                    {% for e in money %}
+                        <tr>
+                            <th>{{ e.name }}</th>
+                            <th>{{ e.amount }}</th>
+                        </tr>
+                    {% endfor %}
+            </table>
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
+{% else %}
+<div class="content-section">
+    <h1>You do not own any money!</h1>
+</div>
+{% endif %}
+{% endblock %}

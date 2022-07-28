@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="row row-col-3">
+    <div class="col"></div>
+    <div class="col">
+        <div class="content-section border">
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group">
+                    <div class="form-group">
+                        {{ form.fromCurrency.label(class="form-control-label mb-1 mt-2") }}
+    
+                        {% if form.fromCurrency.errors %}  
+                            {{ form.fromCurrency(class="form-control is-invalid") }}
+                            <div>
+                                {% for error in form.fromCurrency.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.fromCurrency(class="form-control") }}
+                        {% endif %}
+                    </div>
+    
+                    <div class="form-group">
+                        {{ form.toCurrency.label(class="form-control-label mb-1 mt-2") }}
+    
+                        {% if form.toCurrency.errors %}  
+                            {{ form.toCurrency(class="form-control is-invalid") }}
+                            <div>
+                                {% for error in form.toCurrency.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.toCurrency(class="form-control") }}
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.amount.label(class="form-control-label mb-1 mt-2") }}
+    
+                        {% if form.amount.errors %}  
+                            {{ form.amount(class="form-control is-invalid") }}
+                            <div>
+                                {% for error in form.amount.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.amount(class="form-control") }}
+                        {% endif %}
+                    </div>
+    
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-primary mt-3") }}
+                </div>
+            </form>
+        </div>
+        {% if data %}
+            <p  class="page-text mt-5 text-center">1 {{ data['1. From_Currency Code'] }} is equal to {{ data['5. Exchange Rate'] }} {{ data['3. To_Currency Code'] }}</p>
+            <p  class="page-text mt-5 text-center">Date: {{ data['6. Last Refreshed'] }}</p>
+        {% endif %}
+    </div>
+    <div class="col"></div>
+</div>
+{% endblock %}

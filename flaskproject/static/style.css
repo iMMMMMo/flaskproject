@@ -1,0 +1,34 @@
+.content-section {
+    background: #ffffff;
+    padding: 10px 20px;
+    border-radius: 3px;
+    margin-top: 20px;
+}
+
+.border {
+    border: 1px solid #dddddd;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+.page-text {
+    font-size: 24px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+  
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
