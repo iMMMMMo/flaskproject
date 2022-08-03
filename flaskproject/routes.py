@@ -106,12 +106,12 @@ def withdraw_money():
                 if money.amount - form.amount.data > 0:
                     money.amount -= form.amount.data
                     db.session.commit()
-                    flash(f'You have withdrawed {form.amount.data} {money.name}', 'success')
+                    flash(f'You have withdrawn {form.amount.data} {money.name}', 'success')
                     return redirect(url_for('account'))
                 elif money.amount - form.amount.data == 0:
                     db.session.delete(money)
                     db.session.commit()
-                    flash(f'You have withdrawed {money.amount} {money.name}', 'success')
+                    flash(f'You have withdrawn {money.amount} {money.name}', 'success')
                     return redirect(url_for('account'))
                 else:
                     flash(f'You dont have enough! You own {money.amount} of {money.name}.', 'info')
@@ -146,7 +146,7 @@ def exchange_money():
                 db.session.commit()
             else:
                 flash(f'You dont have enough! You own {ownedMoney.amount} of {ownedMoney.name}.', 'info')
-                return redirect(url_for('withdraw_money')) 
+                return redirect(url_for('exchange_money')) 
             
             amount = floor(form.amount.data*rate)
             for money in current_user_money:
